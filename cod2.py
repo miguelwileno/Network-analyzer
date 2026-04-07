@@ -65,7 +65,7 @@ def banner():
     for line in ascii_logo:
         print(GREEN + center(line) + RESET)
         time.sleep(0.03)
-    type_text(BLUE + center("C5riado por @MiguelWileno") + RESET, 0.01)
+    type_text(BLUE + center("Copyright © 2026 @MiguelWileno") + RESET, 0.01)
     print(CYAN + "="*80 + RESET)
     type_text(CYAN + "\n[+] Iniciando sistema MIIGBOT..." + RESET)
     loading_bar()
@@ -153,6 +153,14 @@ def ping_menu():
             print(RED + "Opção inválida!" + RESET)
             pause()
 
+def auto_update():
+    try:
+        print("\n[+] Verificando atualizações...")
+        os.system("git pull")
+        print("[✓] Projeto atualizado!\n")
+    except:
+        print("[!] Não foi possível atualizar.")
+
 # ================= OPÇÃO 6: INSTRUÇÕES =================
 def instructions_menu():
     while True:
@@ -184,8 +192,8 @@ def menu():
         print(GREEN + "+" + "-"*78 + "+" + RESET)
         print(GREEN + "| " + RESET + "1 - Dados da rede".ljust(76) + GREEN + " |" + RESET)
         print(GREEN + "| " + RESET + "2 - Lista de IP's".ljust(76) + GREEN + " |" + RESET)
-        print(GREEN + "| " + RESET + "3 - Tracert".ljust(76) + GREEN + " |" + RESET)
-        print(GREEN + "| " + RESET + "4 - Teste de Loopback".ljust(76) + GREEN + " |" + RESET)
+        print(GREEN + "| " + RESET + "3 - Teste de Tracert".ljust(76) + GREEN + " |" + RESET)
+        print(GREEN + "| " + RESET + "4 - Teste de Loop".ljust(76) + GREEN + " |" + RESET)
         print(GREEN + "| " + RESET + "5 - Teste de Ping".ljust(76) + GREEN + " |" + RESET)
         print(GREEN + "| " + RESET + "6 - Instruções Técnicas".ljust(76) + GREEN + " |" + RESET)
         print(GREEN + "| " + RESET + "0 - Sair".ljust(76) + GREEN + " |" + RESET)
@@ -214,4 +222,5 @@ def menu():
 
 # ================= START =================
 if __name__ == "__main__":
+    auto_update()
     menu()
